@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-api
+  namespace: default
+spec:
+  selector:
+    app: backend-app  # Ensure this matches the deployment label
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 31551  # Change this to your container port if different
+  type: LoadBalancer  # Use NodePort if you don't want an external load balance
